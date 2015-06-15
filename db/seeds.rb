@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Review.destroy_all
+Book.destroy_all
+User.destroy_all
+
+require_relative('../db/seeds/users')
+require_relative('../db/seeds/books')
+require_relative('../db/seeds/reviews')
