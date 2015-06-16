@@ -1,0 +1,38 @@
+.row
+  = render 'shared/back_button', link: books_path
+  .clearfix
+  = render 'shared/flash'
+  .col-md-3.book-cover-lg
+    %p.text-center
+      = book_cover(h(@book.title), @book.amazon_id)
+    / - if logged_in? && current_user.admin?
+    /   .pull-left
+    /     = link_to 'Edit', edit_book_path(@book), class: 'btn btn-md btn-warning book-edit-link'
+    /   .pull-right
+    /     = button_to 'Delete', book_path(@book), method: :delete, data: { confirm: 'Are you sure ?' }, class: 'btn btn-md btn-danger book-delete-link'
+  .col-md-7.book-info-block
+    %h1= h(@book.title)
+    %p
+      %strong
+        by #{h(@book.author)}
+    %p
+      %span ISBN-10:
+      = @book.isbn
+    %p
+      %span Publisher:
+      = h(@book.publisher)
+    %p
+      %span Published:
+      = format_pub_date(@book.pub_date)
+    %p= sanitize @book.description, tags: %w(p h5 ul li)
+  .col-md-2.book-price-block
+    %p.text-center.price-box
+      $#{@book.price}
+    / = render 'shared/add_to_cart', book_id: @book.id
+.row
+  #reviews.col-md-10.col-md-offset-1
+    - if @reviews.any?
+      %hr/
+      %h4.text-center Customer reviews
+      = render @reviews
+    / = render 'reviews/review_form' if logged_in?

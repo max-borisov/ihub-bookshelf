@@ -1,0 +1,10 @@
+.review-block
+  / - if logged_in? && (review_belongs_to_user?(review) || current_user.admin?)
+  /   = button_to book_review_path(@book, review), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger pull-right', title: 'Delete review', remote: true do
+  /     %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+  %p.review-author
+    By
+    %span.review-user-name= review.user.name
+    on #{format_pub_date(review.created_at)}
+  %p.review-text= review.text
+  %hr/
