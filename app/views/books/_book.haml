@@ -19,6 +19,7 @@
       = sanitize(book.description.truncate_words(50), tags: %w(p h5 ul li)) + ' ' + link_to('more', book_url)
       \.
   .col-md-2.book-price-block
-    %p.price-box.text-center= number_to_currency book.price
-    / = render 'shared/add_to_cart', book_id: book.id
+    %p.price-box.text-center= number_to_currency(book.price)
+    - if user_signed_in?
+      = render 'shared/add_to_cart', book_id: book.id
 %hr/

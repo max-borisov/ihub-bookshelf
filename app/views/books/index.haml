@@ -1,4 +1,7 @@
-= render 'shared/flash'
+/ -if alert
+/   = render 'shared/flash_alert'
+/ -if notice
+/   = render 'shared/flash_notice'
 // = render 'search_book_form'
 - if @books.any?
   .pull-left
