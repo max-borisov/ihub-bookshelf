@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   
   has_many :reviews, dependent: :destroy
 
-  validates :fullname, presence: true
+  validates :name, presence: true
 end

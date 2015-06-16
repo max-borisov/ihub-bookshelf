@@ -6,8 +6,8 @@
       = render 'shared/error', model: resource
     = form_for(resource, url: user_registration_path(resource)) do |f|
       .form-group
-        = f.label :fullname
-        = f.text_field :fullname, class: 'form-control'
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
       .form-group
         = f.label :email
         = f.text_field :email, class: 'form-control'

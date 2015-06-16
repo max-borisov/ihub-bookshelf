@@ -1,7 +1,7 @@
 .row
   = render 'shared/back_button', link: books_path
   .clearfix
-  = render 'shared/flash'
+  / = render 'shared/flash'
   .col-md-3.book-cover-lg
     %p.text-center
       = book_cover(h(@book.title), @book.amazon_id)
