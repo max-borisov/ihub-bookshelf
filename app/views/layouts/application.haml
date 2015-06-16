@@ -50,5 +50,7 @@
                 = link_to('Sign in', '/')
           / /.nav-collapse
         / /.container-fluid
+      %p.notice= notice
+      %p.alert= alert
       = yield
     = # render 'shared/debug' if Rails.env.development?
