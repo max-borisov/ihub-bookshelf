@@ -1,0 +1,14 @@
+= render 'shared/flash'
+// = render 'search_book_form'
+- if @books.any?
+  .pull-left
+    / = will_paginate
+  .pull-right.book-count-block
+    %p.text-info
+      = pluralize(@books.count, 'book')
+      in the catalog
+  .clearfix
+  = render @books
+  / = will_paginate
+- else
+  / = render 'book_not_found'
