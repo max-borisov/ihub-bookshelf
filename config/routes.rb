@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'books#index'
-  resources :books
+  resources :books do
+    # resources :reviews
+    # resources :reviews, except: [:edit, :update], on: :member
+    resources :reviews, on: :member
+  end
 
   # You can have the root of your site routed with "root"
 

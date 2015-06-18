@@ -23,8 +23,9 @@ class BooksController < ApplicationController
   # Show book
   def show
     @reviews = @book.reviews
+    @review = Review.new
   end
-  
+
   def edit
   end
 
@@ -35,7 +36,7 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-    
+
   def destroy
     title = @book.title
     @book.destroy
@@ -43,11 +44,11 @@ class BooksController < ApplicationController
   end
 
   private
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
-    def book_params
-      params.require(:book).permit(:title, :author, :publisher, :pub_date, :description, :price, :isbn, :amazon_id)
-    end
+  def book_params
+    params.require(:book).permit(:title, :author, :publisher, :pub_date, :description, :price, :isbn, :amazon_id)
+  end
 end
