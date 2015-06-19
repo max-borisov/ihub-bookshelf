@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618134534) do
+ActiveRecord::Schema.define(version: 20150619080446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150618134534) do
     t.text     "description"
     t.float    "price"
     t.date     "pub_date"
-    t.string   "publisher"
     t.string   "amazon_id"
     t.text     "keywords"
     t.datetime "created_at",               null: false
@@ -32,29 +31,10 @@ ActiveRecord::Schema.define(version: 20150618134534) do
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", using: :btree
 
-  create_table "lists", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "book_id"
-    t.integer  "status_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "lists", ["book_id"], name: "index_lists_on_book_id", using: :btree
-  add_index "lists", ["status_id"], name: "index_lists_on_status_id", using: :btree
-  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
-
   create_table "reviews", force: :cascade do |t|
     t.text     "text"
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "statuses", force: :cascade do |t|
-    t.string   "status"
-    t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +51,4 @@ ActiveRecord::Schema.define(version: 20150618134534) do
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
-  add_foreign_key "lists", "books"
-  add_foreign_key "lists", "statuses"
-  add_foreign_key "lists", "users"
 end
