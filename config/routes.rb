@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'books#index'
+  root 'books#index'  
   resources :books do
     # resources :reviews
     # resources :reviews, except: [:edit, :update], on: :member
     resources :reviews, on: :member
   end
+  resources :shopping_cart_items, only: [:index, :create, :destroy]
 
   # You can have the root of your site routed with "root"
 

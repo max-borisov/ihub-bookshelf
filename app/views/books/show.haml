@@ -19,16 +19,12 @@
       %span ISBN-10:
       = @book.isbn
     %p
-      %span Publisher:
-      = h(@book.publisher)
-    %p
       %span Published:
       = format_pub_date(@book.pub_date)
     %p= sanitize @book.description, tags: %w(p h5 ul li)
   .col-md-2.book-price-block
-    %p.text-center.price-box
-      $#{@book.price}
-    / = render 'shared/add_to_cart', book_id: @book.id
+    %p.text-center.price-box= number_to_currency(@book.price)
+    = render 'add_to_cart', book: @book
 .row
   #reviews.col-md-10.col-md-offset-1
     - if @reviews.any?

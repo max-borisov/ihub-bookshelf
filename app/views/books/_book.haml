@@ -10,9 +10,6 @@
       %span ISBN-10:
       = book.isbn
     %p
-      %span Publisher:
-      = h(book.publisher)
-    %p
       %span Published:
       = format_pub_date(book.pub_date)
     %p
@@ -20,6 +17,5 @@
       \.
   .col-md-2.book-price-block
     %p.price-box.text-center= number_to_currency(book.price)
-    - if user_signed_in?
-      = render 'shared/add_to_cart', book_id: book.id
+    = render 'add_to_cart', book: book
 %hr/
