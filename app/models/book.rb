@@ -6,9 +6,5 @@ class Book < ActiveRecord::Base
   validates :isbn, length: { maximum: 12 }, format: { with: /[\d\-]+/ }
   validates :amazon_id, length: { maximum: 50 }, format: { with: /[\dA-Z]+/ }
   validates :isbn, :amazon_id, uniqueness: { message: 'is not unique' }
-  validates :price, numericality: true
-
-  def get_status_for_user(user)
-    
-  end
+  validates :price, numericality: true  
 end
