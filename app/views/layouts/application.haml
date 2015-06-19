@@ -39,7 +39,7 @@
                   %a{:href => '#'}
                     %span.glyphicon.glyphicon-shopping-cart{"aria-hidden" => "true"}
                     \ 
-                    %span.badge 110
+                    %span.badge= number_to_currency(current_user.shopping_cart_total_price())
             - else
               %ul.nav.navbar-nav.navbar-right.navbar-user
                 %li
