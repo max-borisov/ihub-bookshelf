@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :reviews, on: :member
   end
   resources :shopping_cart_items, only: [:index, :create, :destroy]
+  resources :orders, only: [:index, :create, :destroy]
+  # TODO: Add users/orders resource
 
   # You can have the root of your site routed with "root"
 
