@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   after_save :create_items
 
   validates :user_id, :total_price, presence: true
