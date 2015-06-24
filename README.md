@@ -14,7 +14,7 @@
 
 ---
 
-1. ## Basic app configuration. Models, seed files, rails console
+## Basic app configuration. Models, seed files, rails console
 
 First of all lets check you have a ruby installed on your computer. Open a terminal and type `ruby -v`. You might get something like that:
 
