@@ -1,16 +1,8 @@
-/ -if alert
-/   = render 'shared/flash_alert'
 = render 'shared/flash_notice' if notice
-// = render 'search_book_form'
-- if @books.any?
-  .pull-left
-    / = will_paginate
-  .pull-right.book-count-block
-    %p.text-info
-      = pluralize(@books.count, 'book')
-      in the catalog
-  .clearfix
-  = render @books
-  / = will_paginate
-- else
-  / = render 'book_not_found'
+.pull-left
+.pull-right.book-count-block
+  %p.text-info
+    = pluralize(@books.count, 'book')
+    in the catalog
+.clearfix
+= render @books
