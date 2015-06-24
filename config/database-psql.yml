@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: bookshelf
+  password: bookshelf
+  template: template0
+
+development:
+  <<: *default
+  database: ihub_bookshelf_dev
+
+test:
+  <<: *default
+  database: ihub_bookshelf_test
+
+production:
+  <<: *default
+  database: ihub_bookshelf_prod

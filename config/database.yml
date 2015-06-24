@@ -1,19 +1,36 @@
 default: &default
-  adapter: postgresql
-  encoding: utf8
+  adapter: sqlite3
   pool: 5
-  username: bookshelf
-  password: bookshelf
-  template: template0
+  timeout: 5000
 
 development:
   <<: *default
-  database: ihub_bookshelf_dev
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: ihub_bookshelf_test
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: ihub_bookshelf_prod
+  database: db/production.sqlite3
+
+# default: &default
+#   adapter: postgresql
+#   encoding: utf8
+#   pool: 5
+#   username: bookshelf
+#   password: bookshelf
+#   template: template0
+
+# development:
+#   <<: *default
+#   database: ihub_bookshelf_dev
+
+# test:
+#   <<: *default
+#   database: ihub_bookshelf_test
+
+# production:
+#   <<: *default
+#   database: ihub_bookshelf_prod
